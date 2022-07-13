@@ -18,13 +18,17 @@ use App\Http\Controllers\Backoffice\CarController as BackofficeCarController;
 Route::get('/', [CarController::class, 'index']);
 
 Route::prefix('backoffice')->group(function () {
-    Route::get('/cars', [BackofficeCarController::class, 'index']);
+    Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car');
 });
 
 Route::prefix('backoffice')->group(function () {
-    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');;
+    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');
 });
 
 Route::prefix('backoffice')->group(function () {
-    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');;
+    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');
+});
+
+Route::prefix('backoffice')->group(function () {
+    Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car');
 });

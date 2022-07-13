@@ -1,3 +1,12 @@
 h1 {
     color: #F0F;
+    text-align: center;
+}
+
+.carList-table {
+    margin-bottom: 30px;
+}
+
+nav {
+    text-align: center;
 }

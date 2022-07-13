@@ -9,7 +9,7 @@ Class CarController extends Controller
     public function index()
     {
 
-        $cars = Car::paginate(5);
+        $cars = Car::simplepaginate(5);
 
         $titleH2 = 'Nos voitures';
 

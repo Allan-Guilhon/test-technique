@@ -21,7 +21,7 @@ class CreateCarsTable extends Migration
             $table->year('année');
             $table->string('finition');
             $table->text('description');
-            $table->string('photo');
+            $table->binary('photo');
             $table->integer('prix');
             $table->timestamps();
         });
