@@ -17,16 +17,32 @@
 
     <main class="container">
 
+    @if(Session::get('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success')}}
+        </div>
+    @endif
+
+    @if(Session::get('fail'))
+    <div class="alert alert-danger">
+        {{ Session::get('fail')}}
+    </div>
+    @endif
+
     <form action="" method="post">
+
+    @csrf
 
     <div class="mb-3">
         <label for="car_brand" class="form-label">Marque</label>
         <input type="text" class="form-control" id="car_brand" name="car_brand" placeholder="Marque du vehicule">
+        <span style="color:red">@error('car_brand'){{message}} @enderror</span>
     </div>
 
     <div class="mb-3">
         <label for="car_model" class="form-label">Modèle</label>
         <input type="text" class="form-control" id="car_model" name="car_model" placeholder="Modèle du vehicule">
+        <span style="color:red">@error('car_model'){{message}} @enderror</span>
     </div>
 
     <div class="mb-3">

@@ -22,5 +22,9 @@ Route::prefix('backoffice')->group(function () {
 });
 
 Route::prefix('backoffice')->group(function () {
-    Route::get('/cars/add', [BackofficeCarController::class, 'add'])->name('add.car');;
+    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');;
+});
+
+Route::prefix('backoffice')->group(function () {
+    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');;
 });
