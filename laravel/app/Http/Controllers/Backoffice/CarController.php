@@ -11,7 +11,7 @@ Class CarController extends Controller
 {
     public function index(Request $request)
     {
-        $cars = Car::paginate(5);
+        $cars = Car::all();
 
         $titleH2 = 'Nos voitures';
 
@@ -41,11 +41,14 @@ Class CarController extends Controller
             'prix'=>$request->input('car_price'),
         ]);
 
+        return redirect()->route('list.car');
+
         if($query) {
             return back()->with('success', 'La voiture a bien été enregistrée !');
         } else {
             return back()->with('fail', 'Erreur d\'enregistrement !');
         }
+
     }
 
     public function show($id)
@@ -53,8 +56,9 @@ Class CarController extends Controller
         $car = Car::find($id);
     }
 
-    public function destroy($id)
+    public function deleteData($id)
     {
-
+        $data = Car::find($id);
+        $data->delete();
     }
 }

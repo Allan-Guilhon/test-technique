@@ -44,6 +44,7 @@
             <td>{{ $car->description }}</td>
             <td> {{ $car->photo }} </td>
             <td> {{ $car->prix }} € </td>
+            <td><a href="cars/delete/{{$car->id}}">Supprimer</a></td>
             </tr>
             @endforeach
 
