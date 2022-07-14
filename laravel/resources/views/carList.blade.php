@@ -12,31 +12,31 @@
 <body>
     <header>
         <h1>6TEMATIKAR</h1>
+        <a href="#">Connexion</a>
     </header>
 
     <main class="container">
 
+        <h2>{{ $titleH2 }}</h2>
+
     <div class="carList-table">
+
         <table>
             <thead>
                 <tr>
-                    <th>{{ $titleH2 }}</th>
+                    <th>photo</th>
+                    <th>marque</th>
+                    <th>modele</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($cars as $car)
                 <tr>
-                <td><a href=""><img src="{{ $car->photo }}" alt=""></a></td>
+                <td><img style="width:150px; height: auto;" src="images/{{ $car->photo }}" alt=""></td>
                 <td>{{ $car->marque}}</td>
                 <td>{{ $car->modele }}</td>
-                <!-- <td>{{ $car->puissance}}</td>
-                <td>{{ $car->année }}</td>
-                <td>{{ $car->finition }} </td>
-                <td>{{ $car->description }}</td> -->
-                <!-- <td> {{ $car->prix }} € </td>-->
                 </tr>
-                @endforeach
-
+            @endforeach
             </tbody>
         </table>
     </div>

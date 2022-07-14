@@ -29,30 +29,30 @@
     </div>
     @endif
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
 
     @csrf
 
     <div class="mb-3">
         <label for="car_brand" class="form-label">Marque</label>
         <input type="text" class="form-control" id="car_brand" name="car_brand" placeholder="Marque du vehicule">
-        <span style="color:red">@error('car_brand'){{message}} @enderror</span>
+        <span style="color:red">@error('car_brand'){{$message}} @enderror</span>
     </div>
 
     <div class="mb-3">
         <label for="car_model" class="form-label">Modèle</label>
         <input type="text" class="form-control" id="car_model" name="car_model" placeholder="Modèle du vehicule">
-        <span style="color:red">@error('car_model'){{message}} @enderror</span>
+        <span style="color:red">@error('car_model'){{$message}} @enderror</span>
     </div>
 
     <div class="mb-3">
         <label for="car_hp" class="form-label">Puissance (cv)</label>
-        <input type="text" class="form-control" id="car_hp" name="car_hp" placeholder="Puissance du vehicule">
+        <input type="number" class="form-control" id="car_hp" name="car_hp" placeholder="Puissance du vehicule">
     </div>
 
     <div class="mb-3">
         <label for="car_year" class="form-label">Année</label>
-        <input type="text" class="form-control" id="car_year" name="car_year" placeholder="Année du vehicule">
+        <input type="number" class="form-control" id="car_year" name="car_year" placeholder="Année du vehicule">
     </div>
 
     <div class="mb-3">
@@ -72,7 +72,7 @@
 
     <div class="mb-3">
         <label for="car_price" class="form-label">Prix</label>
-        <input type="text" class="form-control" id="car_price" name="car_price" placeholder="Prix du vehicule">
+        <input type="number" class="form-control" id="car_price" name="car_price" placeholder="Prix du vehicule">
     </div>
 
     <div class="col-auto">

@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/backoffice.css">
-    <title>Liste de voitures
-    </title>
-</head>
-<body>
-    <header>
-        <h1>BACKOFFICE</h1>
-        <h2>{{ $titleH2 }}</h2>
-        <a href="<?= route('add.car')?>"><button type="button" class="btn btn-success">Ajoutez un vehicule</button></a></div>
-    </header>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Liste de Voitures') }}
+        </h2>
+    </x-slot>
 
-    <main class="container-fluid">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    You're logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+    <x-slot name="slot">
 
-        <table class="table table-striped">
+        <a href="<?= route('add.car')?>"><button type="button" class="btn btn-success">Ajoutez un vehicule</button></a>
+
+        <table class="table-auto">
         <thead>
             <tr>
-            <th scope="col">#</th>
             <th scope="col">Marque</th>
             <th scope="col">Modèle</th>
             <th scope="col">Puissance</th>
@@ -35,7 +34,6 @@
         <tbody>
             @foreach($cars as $car)
             <tr>
-            <th scope="row">1</th>
             <td>{{ $car->marque}}</td>
             <td>{{ $car->modele }}</td>
             <td>{{ $car->puissance}}</td>
@@ -51,7 +49,6 @@
         </tbody>
         </table>
 
-    </main>
+    </x-slot>
+</x-app-layout>
 
-</body>
-</html>

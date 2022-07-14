@@ -25,25 +25,32 @@ Class CarController extends Controller
 
     public function addData(Request $request)
     {
+        $file= $request->file('car_picture');
+        if ($file) {
+            $filename= date('YmdHis').$file->getClientOriginalName();
+        }
+
         $request->validate([
             'car_brand' => 'required',
             'car_model' => 'required',
         ]);
 
-        $query = DB::table('cars')->insert([
-            'marque'=>$request->input('car_brand'),
-            'modele'=>$request->input('car_model'),
-            'puissance'=>$request->input('car_hp'),
-            'année'=>$request->input('car_year'),
-            'finition'=>$request->input('car_finition'),
-            'description'=>$request->input('car_description'),
-            'photo'=>$request->input('car_picture'),
-            'prix'=>$request->input('car_price'),
-        ]);
+        $car = new Car();
+        $car->marque = $request->input('car_brand');
+        $car->modele = $request->input('car_model');
+        $car->puissance = $request->input('car_hp');
+        $car->année = $request->input('car_year');
+        $car->finition = $request->input('car_finition');
+        $car->description = $request->input('car_description');
+        $car->photo = $filename;
+        $car->prix = $request->input('car_price');
 
-        return redirect()->route('list.car');
+        $file-> move(public_path('images'), $filename);
+        $saved = $car->save();
 
-        if($query) {
+        //return redirect()->route('list.car');
+
+        if($saved) {
             return back()->with('success', 'La voiture a bien été enregistrée !');
         } else {
             return back()->with('fail', 'Erreur d\'enregistrement !');
@@ -60,5 +67,6 @@ Class CarController extends Controller
     {
         $data = Car::find($id);
         $data->delete();
+        return redirect()->route('list.car');
     }
 }

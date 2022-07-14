@@ -19,16 +19,13 @@ Route::get('/', [CarController::class, 'index']);
 
 Route::prefix('backoffice')->group(function () {
     Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car');
-});
-
-Route::prefix('backoffice')->group(function () {
     Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');
-});
-
-Route::prefix('backoffice')->group(function () {
     Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');
-});
-
-Route::prefix('backoffice')->group(function () {
     Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
