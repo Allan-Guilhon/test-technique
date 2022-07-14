@@ -33,6 +33,11 @@ Class CarController extends Controller
         $request->validate([
             'car_brand' => 'required',
             'car_model' => 'required',
+            'car_hp' => 'required',
+            'car_year' => 'required',
+            'car_finition' => 'required',
+            'car_description' => 'required',
+            'car_price' => 'required',
         ]);
 
         $car = new Car();
@@ -48,14 +53,13 @@ Class CarController extends Controller
         $file-> move(public_path('images'), $filename);
         $saved = $car->save();
 
-        //return redirect()->route('list.car');
+        return redirect()->route('list.car');
 
-        if($saved) {
-            return back()->with('success', 'La voiture a bien été enregistrée !');
-        } else {
-            return back()->with('fail', 'Erreur d\'enregistrement !');
-        }
-
+        // if($saved) {
+        //     return back()->with('success', 'La voiture a bien été enregistrée !');
+        // } else {
+        //     return back()->with('fail', 'Erreur d\'enregistrement !');
+        // }
     }
 
     public function show($id)

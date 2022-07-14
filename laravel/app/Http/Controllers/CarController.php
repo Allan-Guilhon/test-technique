@@ -16,4 +16,10 @@ Class CarController extends Controller
         return view('carList', compact('titleH2', 'cars'));
 
     }
+
+    public function show($id)
+    {
+        $car = Car::find($id);
+        return view('singleCar', compact('car'));
+    }
 }

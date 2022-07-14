@@ -16,6 +16,8 @@ use App\Http\Controllers\Backoffice\CarController as BackofficeCarController;
 */
 
 Route::get('/', [CarController::class, 'index']);
+Route::get('/single/{id}', [CarController::class, 'show'])->name('single/{id}');
+
 
 Route::prefix('backoffice')->group(function () {
     Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car');

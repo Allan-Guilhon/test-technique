@@ -5,6 +5,85 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    height:150px;
+    padding: 30px 65px;
+    background-color: black;
+}
+
+.loginStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    font-weight: bolder;
+    color: white;
+    font-size: 85px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header a {
+    font-weight: bold;
+    font-size: 25px;
+    color: #F0F;
+}
+
+header a:hover {
+    font-weight: bold;
+    font-size: 25px;
+    color: chartreuse
+}
+
+body {
+    background-color: #eee;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 25px 0 25px 0;
+}
+
+.carList-Table__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 15px 40px;
+    height: 200px;
+    background-color: white;
+}
+
+.carList-Table__card:hover {
+    height: 210px;
+    box-shadow: 6px 6px 25px black;
+}
+
+.carList-Table__card img {
+    border-radius: 10px;
+}
+
+.carList-single {
+    padding:80px
+}
+
+.carList-single__card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 30px 0 30px 0;
+    background-color: white;
+    height: 500px;
+}
+
 *,
 ::before,
 ::after {
@@ -958,12 +1037,8 @@ select {
 .border-t {
   border-top-width: 1px;
 }
-.border-r {
-  border-right-width: 1px;
-}
-.border-b {
-  border-bottom-width: 1px;
-}
+
+
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -978,10 +1053,7 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-}
+
 .border-transparent {
   border-color: transparent;
 }

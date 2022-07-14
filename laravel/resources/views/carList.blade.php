@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,44 +10,45 @@
     <title>Liste de voitures
     </title>
 </head>
+
 <body>
     <header>
         <h1>6TEMATIKAR</h1>
-        <a href="#">Connexion</a>
+        <div class="loginStyle">
+        <a href="<?= route('dashboard') ?>">Connexion</a>
+        <a href="<?= route('register') ?>">Enregistrement</a>
+        </div>
     </header>
 
     <main class="container">
 
         <h2>{{ $titleH2 }}</h2>
 
-    <div class="carList-table">
+        <div class="carList-table">
 
-        <table>
-            <thead>
-                <tr>
-                    <th>photo</th>
-                    <th>marque</th>
-                    <th>modele</th>
-                </tr>
-            </thead>
-            <tbody>
             @foreach($cars as $car)
-                <tr>
-                <td><img style="width:150px; height: auto;" src="images/{{ $car->photo }}" alt=""></td>
-                <td>{{ $car->marque}}</td>
-                <td>{{ $car->modele }}</td>
-                </tr>
+
+                <a href="single/ <?= $car->id ?>"><div class="carList-Table__card max-w-sm w-full lg:max-w-full lg:flex">
+                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                    <img style="width:150px; height: auto;" src="images/{{ $car->photo }}" alt="">
+                </div>
+
+                <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <div class="mb-8">
+                        <div class="carList-Table__card__title text-gray-900 font-bold text-xl mb-2">{{ $car->marque}}</div>
+                        <p class="carList-Table__card__model text-gray-700 text-base">{{ $car->modele }}</p>
+                    </div>
+
+                </div>
+            </div></a>
             @endforeach
-            </tbody>
-        </table>
-    </div>
 
-    {{ $cars->links() }}
+        </div>
 
-</main>
+        {{ $cars->links() }}
 
-
-
+    </main>
 
 </body>
+
 </html>
