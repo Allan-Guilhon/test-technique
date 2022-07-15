@@ -20,10 +20,10 @@ Route::get('/single/{id}', [CarController::class, 'show'])->name('single/{id}');
 
 
 Route::prefix('backoffice')->group(function () {
-    Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car');
-    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');
-    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');
-    Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car');
+    Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car')->middleware('auth');;
+    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car')->middleware('auth');;
+    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car')->middleware('auth');;
+    Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car')->middleware('auth');;
 });
 
 Route::get('/dashboard', function () {

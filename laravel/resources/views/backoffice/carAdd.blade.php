@@ -84,7 +84,7 @@
                             <label for="car_description" class="block text-sm font-medium text-gray-700"> Description </label>
                             <div class="mt-1">
                                 <textarea id="car_description" name="car_description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Description du vehicule"></textarea>
-                                <span style="color:red">@error('car_finition'){{$message}} @enderror</span>
+                                <span style="color:red">@error('car_description'){{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-3 gap-6 mb-4 mt-4">

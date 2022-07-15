@@ -84,6 +84,10 @@ main h2 {
     height: 500px;
 }
 
+.carList-single__card__description {
+    font-size: 1.8rem;
+}
+
 *,
 ::before,
 ::after {
@@ -269,8 +273,10 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
-  background-color: transparent; /* 2 */
+  background-color: #49de4e; /* 2 */
   background-image: none; /* 2 */
+  border-radius: 5px;
+  padding: 8px;
 }
 
 /*
