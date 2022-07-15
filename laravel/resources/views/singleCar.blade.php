@@ -36,11 +36,14 @@
                         <p class="carList-single__card__description">Description : {{ $car->description }}</p>
                         <p class="carList-single__card__description">Prix : {{ $car->prix }} €</p>
                     </div>
-
                 </div>
             </div>
         </a>
     </div>
+    <div class="home-button">
+    <a href="/">Retour à l'accueil</a>
+    </div>
+
 </body>
 
 </html>
