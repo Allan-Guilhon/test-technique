@@ -16,19 +16,18 @@ use App\Http\Controllers\Backoffice\CarController as BackofficeCarController;
 */
 
 Route::get('/', [CarController::class, 'index']);
+Route::get('/single/{id}', [CarController::class, 'show'])->name('single/{id}');
+
 
 Route::prefix('backoffice')->group(function () {
-    Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car');
+    Route::get('/cars', [BackofficeCarController::class, 'index'])->name('list.car')->middleware('auth');;
+    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car')->middleware('auth');;
+    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car')->middleware('auth');;
+    Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car')->middleware('auth');;
 });
 
-Route::prefix('backoffice')->group(function () {
-    Route::get('/cars/add', [BackofficeCarController::class, 'addPage'])->name('add.car');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::prefix('backoffice')->group(function () {
-    Route::post('/cars/add', [BackofficeCarController::class, 'addData'])->name('add.car');
-});
-
-Route::prefix('backoffice')->group(function () {
-    Route::get('/cars/delete/{id}', [BackofficeCarController::class, 'deleteData'])->name('delete.car');
-});
+require __DIR__.'/auth.php';

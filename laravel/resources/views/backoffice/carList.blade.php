@@ -1,57 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/backoffice.css">
-    <title>Liste de voitures
-    </title>
-</head>
-<body>
-    <header>
-        <h1>BACKOFFICE</h1>
-        <h2>{{ $titleH2 }}</h2>
-        <a href="<?= route('add.car')?>"><button type="button" class="btn btn-success">Ajoutez un vehicule</button></a></div>
-    </header>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Liste de Voitures') }}
+        </h2>
+    </x-slot>
 
-    <main class="container-fluid">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    Vous êtes connecté !
+                </div>
+            </div>
+        </div>
+    </div>
+    <x-slot name="slot">
 
-        <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Marque</th>
-            <th scope="col">Modèle</th>
-            <th scope="col">Puissance</th>
-            <th scope="col">Année</th>
-            <th scope="col">Finition</th>
-            <th scope="col">Description</th>
-            <th scope="col">Photo</th>
-            <th scope="col">Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($cars as $car)
-            <tr>
-            <th scope="row">1</th>
-            <td>{{ $car->marque}}</td>
-            <td>{{ $car->modele }}</td>
-            <td>{{ $car->puissance}}</td>
-            <td>{{ $car->année }}</td>
-            <td>{{ $car->finition }} </td>
-            <td>{{ $car->description }}</td>
-            <td> {{ $car->photo }} </td>
-            <td> {{ $car->prix }} € </td>
-            <td><a href="cars/delete/{{$car->id}}">Supprimer</a></td>
-            </tr>
-            @endforeach
+        <a href="<?= route('add.car') ?>"><button type="button" class="carList_button">Ajoutez un vehicule</button></a>
 
-        </tbody>
-        </table>
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">Marque</th>
+                        <th scope="col" class="py-3 px-6">Modéle</th>
+                        <th scope="col" class="py-3 px-6">Puissance</th>
+                        <th scope="col" class="py-3 px-6">Année</th>
+                        <th scope="col" class="py-3 px-6">Finition</th>
+                        <th scope="col" class="py-3 px-6">Description</th>
+                        <th scope="col" class="py-3 px-6">Photo</th>
+                        <th scope="col" class="py-3 px-3">Prix</th>
+                        <th scope="col" class="py-3 px-6">Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cars as $car)
+                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $car->marque}}
+                        </th>
+                        <td class="py-4 px-6">
+                            {{ $car->modele }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->puissance}}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->année }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->finition }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->description }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->photo }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $car->prix }} €
+                        </td>
+                        <td class="py-4 px-6">
+                            <a href="cars/delete/{{$car->id}}">Supprimer</a>
+                        </td>
+                    </tr>
 
-    </main>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
-</body>
-</html>
+    </x-slot>
+</x-app-layout>
