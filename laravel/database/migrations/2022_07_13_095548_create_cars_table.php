@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateCarsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. create the table in db
      *
      * @return void
      */
@@ -15,14 +15,14 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('marque', 100);
-            $table->string('modele', 100);
-            $table->integer('puissance');
-            $table->year('année');
-            $table->string('finition');
+            $table->string('brand', 100);
+            $table->string('model', 100);
+            $table->integer('hp');
+            $table->year('year');
+            $table->string('finishes');
             $table->text('description');
-            $table->string('photo')->nullable();
-            $table->integer('prix');
+            $table->string('picture')->nullable();
+            $table->integer('price');
             $table->timestamps();
         });
     }

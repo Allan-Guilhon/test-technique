@@ -1,3 +1,4 @@
+<!-- Use navigation.blade.php to integrate the header -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -9,24 +10,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+
                 </div>
             </div>
         </div>
     </div>
     <x-slot name="slot">
-
-        @if(Session::get('success'))
-        <div class="alert alert-success">
-            {{ Session::get('success')}}
-        </div>
-        @endif
-
-        @if(Session::get('fail'))
-        <div class="alert alert-danger">
-            {{ Session::get('fail')}}
-        </div>
-        @endif
 
         <div class="mt-5 md:mt-0 md:col-span-2">
             <form action="" method="post" enctype="multipart/form-data">
@@ -34,7 +23,7 @@
                 @csrf
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-
+                        <!-- input form for the car brand with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_brand" class="block text-sm font-medium text-gray-700"> Marque </label>
@@ -44,6 +33,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- input form for the car model with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_model" class="block text-sm font-medium text-gray-700"> Modéle </label>
@@ -53,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- input form for the car hp with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_hp" class="block text-sm font-medium text-gray-700"> Puissance (cv) </label>
@@ -62,6 +53,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- input form for the car year with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_year" class="block text-sm font-medium text-gray-700"> Année </label>
@@ -71,6 +63,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- input form for the car finition with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_finition" class="block text-sm font-medium text-gray-700"> Finition </label>
@@ -81,6 +74,7 @@
                             </div>
                         </div>
                         <div>
+                            <!-- input form for the car description with verification of missed data-->
                             <label for="car_description" class="block text-sm font-medium text-gray-700"> Description </label>
                             <div class="mt-1">
                                 <textarea id="car_description" name="car_description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Description du vehicule"></textarea>
@@ -95,7 +89,7 @@
                                 </label>
                             </div>
                         </div>
-
+                        <!-- input form for the car price with verification of missed data-->
                         <div class="grid grid-cols-3 gap-6 mb-4">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="car_price" class="block text-sm font-medium text-gray-700"> Prix </label>
@@ -105,7 +99,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="mt-4">
                             <button class="btn btn-blue" type="submit" class="btn btn-primary mb-3">Enregistrer</button>
                         </div>

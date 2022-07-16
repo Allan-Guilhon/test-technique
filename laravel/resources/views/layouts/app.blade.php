@@ -28,6 +28,13 @@
             </div>
         </header>
 
+        @if ($message = Session::get('message'))
+            <div class="alert alert-{{ $message['type'] }} alert-block">
+                    <strong>{{ $message['text'] }}</strong>
+            </div>
+        @endif
+
+
         <!-- Page Content -->
         <main class="container mx-auto py-12">
             {{ $slot }}
