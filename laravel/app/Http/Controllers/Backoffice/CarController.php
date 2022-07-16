@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 Class CarController extends Controller
 {
+
+    /**
+     * Retrieve all cars data in db with pagination
+     * return the view with compact for retrieve datas in the front page
+     *
+     * @param Request $request
+     * @return void
+     */
     public function index(Request $request)
     {
         $cars = Car::all();
@@ -18,11 +26,23 @@ Class CarController extends Controller
         return view('backoffice/carList', compact('titleH2', 'cars'));
     }
 
+    /**
+     * Return the addpage view
+     *
+     * @param Request $request
+     * @return void
+     */
     public function addPage(Request $request)
     {
         return view('backoffice/carAdd');
     }
 
+    /**
+     * Record a new car data in the db from the form
+     *
+     * @param Request $request
+     * @return void
+     */
     public function addData(Request $request)
     {
         $file= $request->file('car_picture');
@@ -41,36 +61,46 @@ Class CarController extends Controller
         ]);
 
         $car = new Car();
-        $car->marque = $request->input('car_brand');
-        $car->modele = $request->input('car_model');
-        $car->puissance = $request->input('car_hp');
-        $car->année = $request->input('car_year');
-        $car->finition = $request->input('car_finition');
+        $car->brand = $request->input('car_brand');
+        $car->model = $request->input('car_model');
+        $car->hp = $request->input('car_hp');
+        $car->year = $request->input('car_year');
+        $car->finishes = $request->input('car_finition');
         $car->description = $request->input('car_description');
-        $car->photo = $filename;
-        $car->prix = $request->input('car_price');
+        $car->picture = $filename;
+        $car->price = $request->input('car_price');
 
         $file-> move(public_path('images'), $filename);
         $saved = $car->save();
 
         return redirect()->route('list.car');
 
-        // if($saved) {
-        //     return back()->with('success', 'La voiture a bien été enregistrée !');
-        // } else {
-        //     return back()->with('fail', 'Erreur d\'enregistrement !');
-        // }
     }
 
+    /**
+     * Retrieve car data by id
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function show($id)
     {
         $car = Car::find($id);
     }
 
+    /**
+     * delete car data from the db
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function deleteData($id)
     {
         $data = Car::find($id);
         $data->delete();
-        return redirect()->route('list.car');
+        return redirect()->route('list.car')->with("message", [
+            'type' => 'success',
+            'text' => 'la voiture ' . $id . ' a été supprimé'
+        ]);
     }
 }

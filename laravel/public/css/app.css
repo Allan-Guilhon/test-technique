@@ -54,6 +54,12 @@ main h2 {
     margin: 25px 0 25px 0;
 }
 
+.carList-table {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .carList-Table__card {
     display: flex;
     justify-content: space-between;
@@ -85,9 +91,13 @@ main h2 {
     align-items: center;
     border: 2px solid black;
     border-radius: 15px;
-    padding: 30px 0 30px 0;
+    padding: 30px;
     background-color: white;
     height: 500px;
+}
+
+.carList-single__card img {
+    border-radius:10px;
 }
 
 .carList-single__card__description {
@@ -1118,6 +1128,12 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+.py-5 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
