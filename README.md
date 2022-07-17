@@ -19,7 +19,7 @@ Pour aller dans le back office :
 - Si vous avez un compte : allez sur Connexion, entrez votre identifiant et mot de passe, puis validez.
 
 - Si vous n'avez pas de compte : allez sur enregistrement, créez votre compte, validez.
-Dans le back office, vous arrivez sur liste de voitures, avec la possibilité de revenir sur le site en cliquant sur le logo de voiture en haut en gauche.
+Dans le back office, vous arrivez sur la liste de voitures, avec la possibilité de revenir sur le site en cliquant sur le logo de voiture en haut en gauche.
 
 Vous accédez à la liste complète des véhicules, avec possibilité de supprimer un véhicule.
 
